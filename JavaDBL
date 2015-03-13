@@ -1,7 +1,49 @@
-public class testfile
-{
-Public static void main {
- System.out.println("Hello World");
- sleep(1);
- }
+ public class Software {
+
+	// representing the registers on the pp2
+	int registerZero;
+	int registerOne;
+	int registerTwo;
+	int registerThree;
+	int registerFour;
+	int registerFive;
+
+	// bound in uppaal
+	int revolutionCounter = 0;
+
+	// general booleans
+	boolean disc_dispenser_running = false;
+	boolean storage_tube_empty = false;
+	boolean emergency_stop = false;
+	boolean motor1_running = false;
+	boolean motor2_running_right = false;
+	boolean motor2_running_left = false;
+	boolean black_disc_detected = false;
+	boolean white_disc_detected = false;
+	boolean is_in_cycle = false;
+	// buttons
+	boolean start_stop_button_pressed = false;
+	boolean push_sensor_pressed = false;
+	boolean abort_button_pressed = false;
+	// sensors
+	int photo_cell_2 = 0;
+	int photo_cell_1 = 0;
+
+	public static void main(String[] args) {
+
+	}
+
+	// name stands for maincontrol halting
+	public void sspmh() {
+		while (true) {
+			if (start_stop_button_pressed) {
+				disc_dispenser_running = true;
+				storage_tube_empty = false;
+				start_stop_button_pressed = false;
+				revolutionCounter = 0;
+				break; // break out of the loop
+			}
+		}
+	}
+
 }
